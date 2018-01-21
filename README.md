@@ -2,4 +2,4 @@
 
 > 1. Draw a cat with svg
 
-![cat](/results/01_draw_cat.png)
+![cat](/results/01.draw_cat.png)
