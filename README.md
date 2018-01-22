@@ -1,4 +1,4 @@
-![svg](/images/shotscreens.jpg)
+![svg](/images/shotscreen.jpg)
 
 ## svg exercises
 
