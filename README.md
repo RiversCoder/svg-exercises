@@ -3,16 +3,16 @@
 ## svg exercises
 
 > 1. Draw a cat with svg
->
-> * path , polyline, use的使用
-> * transform 形状的改变
-> * style, stroke, fill 的使用
+
+* path , polyline, use的使用
+* transform 形状的改变
+* style, stroke, fill 的使用
 
 
 > 2. Inline SVG in HTML
->
-> * viewBox的使用
-> * css控制svg形状颜色边框等
+
+* viewBox的使用
+* css控制svg形状颜色边框等
 
 
 
