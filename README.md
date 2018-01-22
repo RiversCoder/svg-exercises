@@ -2,9 +2,8 @@
 
 > 1. Draw a cat with svg
 
-![cat](/results/01.draw_cat.png)
+![svg](/images/shotscreen.png)
 
-### 核心知识点：
 
 * path , polyline, use的使用
 * transform 形状的改变
