@@ -14,6 +14,9 @@
 
 > 2. Inline SVG in HTML
 
+* viewBox的使用
+* css控制svg形状颜色边框等
+
 
 
 * 更多内容请详见 [小青蛙的博客](http://blog.sina.com.cn/riversfrog "小青蛙的博客") 谢谢！
