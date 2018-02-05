@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<svg width="200" height="200" viewBox='0 0 200 200'>
+
+		<!-- 红色 -->
+		<line x1='10' y1='10' x2='50' y2='10' style='stroke:red;stroke-width:5;' />
+
+		<!-- 淡绿色 -->
+		<line x1='10' y1='20' x2='50' y2='20' style='stroke:#9f9;stroke-width:5;' />
+		
+		<!-- 淡蓝色 -->
+		<line x1='10' y1='30' x2='50' y2='30' style='stroke:#9999ff;stroke-width:5;' />
+
+		<!-- 橘色 -->
+		<line x1='10' y1='40' x2='50' y2='40' style='stroke:rgb(255,128,64);stroke-width:5;'/>
+
+		<!-- 深紫色 -->
+		<line x1='10' y1='50' x2='50' y2='50' style='stroke:rgb(60%,20%,60%);stroke-width:5;'/>
+
+		<!-- 淡紫色（半透明） -->
+		<line x1='10' y1='60' x2='50' y2='60' style='stroke:rgba(60%,20%,60%,0.3);stroke-width:5;'/>
+	
+		<line x1='10' y1='60' x2='50' y2='60' style='stroke:rgba(60%,20%,90%,1);stroke-width:5;' stroke-dasharray='10,5' />
+
+
+		<polygon points='15,10 55,10 45,20 5,20' fill='red' stroke='#000' fill-opacity='0.2'/>	
+	</svg>
+
+
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		
+		<polygon points='48,16 16,96 96,48 0,48 80,96' stroke='black' fill='yellow' fill-rule='nonzero' />
+
+		<polygon points='148,16 116,96 196,48 100,48 180,96' stroke='black' fill='#00ff00' fill-rule='evenodd' />
+	</svg>
+
+	<svg width='100' height='50' viewBox='0 0 100 50'>
+		<polygon points='5 20, 20 20, 25 10, 35 30, 45 10, 55 30, 65 10, 75 30, 80 20, 95 20' style='stroke:black;stroke-width:3;fill:none;' />
+	</svg>
+
+	
+	
+	<svg >
+		
+	</svg>
+<!--
+
+
+
+rect属性：( 矩形 )
+
+	basic -> ( x,y,width,height )
+	rx ->  x轴圆弧半径
+	ry ->  y轴圆弧半径
+
+circle属性：( 圆 )
+
+	basic -> ( cx,cy,r,[默认黑色填充，没有轮廓线])
+
+ellipse属性：( 椭圆 )
+
+	basic -> ( cx,cy,rx,ry )
+
+polygon属性：( 多边形 [自动封闭] )
+
+	basic -> points
+	points -> 多边形的顶点坐标 ( 按照逗号或者空格隔开 两个一组 ) 例子：points=" 15,10 55,10 45,20 5,20 "
+		
+stroke规则：( 描边 )
+
+	stroke -> 颜色值：red|#f00|rgb(255,0,0)|rgb(60%,20%,60%)|rgba(255,0,0,1)|transparent
+	stroke-width -> 线条的宽度( number )
+	stroke-opacity -> 线条的不透明度( 0.0 ~ 1.0 )
+	stroke-dasharray -> 线条的形态( 点线 | 虚线 ) stroke-dasharray = ' 长度 , 间隙 ' style='stroke-dasharray = 长度,间隙' ( 偶数个数字，如果是奇数个会重复执行一遍 )
+	stroke-linecap -> 指定不同的值来确定线的头尾形状	
+
+
+fill规则: ( 填充 )
+
+	fill -> 颜色值
+	fill-opacity -> 形状填充透明度 ( 0.0 ~ 1.0 )
+	fill-rule ->  nonzero[默认值] | evenodd [填充外部图形] 
+		
+
+形状属性：
+	
+	stroke -> 颜色值
+		
+	
+-->
+
+</body>
+</html>
