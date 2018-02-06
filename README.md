@@ -30,7 +30,5 @@
 ```
 ![svg](/images/preserveAspectRatio.png)
 
-> 4. SVG Shape Style
-
 
 > 更多内容请详见 [小青蛙的博客](http://blog.sina.com.cn/riversfrog "小青蛙的博客") 谢谢！
