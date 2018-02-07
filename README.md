@@ -49,5 +49,10 @@
 * 表现属性 : 行内属性
 * 优先级 : 内部 > 外部 > 表现
 
+> 6. SVG Group and reference objects
+
+* g use defs symbol image
+* xlink:href='#Id'
+
 
 > 更多内容请详见 [小青蛙的博客](http://blog.sina.com.cn/riversfrog "小青蛙的博客") 谢谢！

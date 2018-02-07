@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>分组和引用对象</title>
+	<style type="text/css">
+		
+		html,body{width:100%;height:100%;}
+		svg{border:1px solid #000;}
+	</style>
+</head>
+<body>
+	<!-- g use defs symbol image -->
+
+	<svg width='240' height='240' viewBox='0 0 240 240'>
+			<title>Grouped Drawing</title>
+			<desc>stick-figure drawing of a house and people</desc>
+
+			<defs>
+				<g id='house' style='fill:none;stroke:black;'>
+					<desc>House width door</desc>
+					<rect width='60' height='60' x='6' y='50' />
+					<polyline points='6 50, 36 9, 66 50' />
+					<polyline points='36 110, 36 80, 50 80, 50 110' />
+				</g>
+
+				<g id='man' style='fill:none;stroke:black;'>
+					<desc>Male human</desc>
+					<circle cx='85' cy='56' r='10' />
+					<line x1='85' y1='66' x2='85' y2='80' />
+					<polyline points='76 104,85 80, 94 104' />
+					<polyline points='76 70,85 76, 94 70' />
+				</g>
+
+				<g id='woman' style='fill:none;stroke:black;'>
+					<desc>Female human</desc>
+					<circle cx='110' cy='56' r='10' />
+					<polyline points='110 66, 110 80, 100 90, 120 90, 110 80' />
+					<line x1='104' y1='104' x2='108' y2='90' />
+					<line x1='112' y1='90' x2='116' y2='104' />
+					<polyline points='101 70, 110 76, 119 80' />
+				</g>
+
+				<rect x='100' y='30' width='50' height='50' style='stroke:black;stroke-width:2;fill:none;' id='rect'/>
+
+				<g id='couple'>
+					<desc>Male and female stick figures</desc>
+					<use xlink:href='#man' x='0' y='0'/>
+					<use xlink:href='#woman' x='0' y='0'/>
+				</g>
+
+
+
+			</defs>
+
+			<use xlink:href = '#house' x ='0' y = '0' style = 'fill:#cfc;'/>
+			<use xlink:href = '#couple' x ='0' y = '0'/>
+			
+			<!-- <use xlink:href = 'svg/rect.svg#centerRect' x='0' y='0'/> -->
+	</svg>
+
+	<svg width='310' height='310' viewBox='0 0 310 310'>
+		
+		<ellipse cx='154' cy='154' rx='150' ry='120' style='fill:#999;'/>
+		<ellipse cx='152' cy='152' rx='150' ry='120' style='fill:#cef;'/>
+
+		<image xlink:href='images/image.jpg' x='72' y='92' width='160' height='120' />
+
+	</svg>
+
+
+<!--
+	
+	g : 组合标签, 将元素统一放置在g标签内,可以统一移动和变换
+	use : 提供复制粘贴的能力 
+		-> 例 : <use xlink:href='#man' x='-30' y='100'/>
+		-> x : 指偏移原位置的x距离 (offsetX)
+		-> y : 指偏移原位置的y距离 (offsetY)
+		-> 注意：调用外部svg文件内部的图形元素，一般会报错
+		-> error: <use xlink:href = 'svg/rect.svg#centerRect' x='0' y='0'/>
+	defs : 	定义图形元素, 不显示图形, 但可以在画布内定义图形元素
+	symbol : 定义元素组类似于g, 但是不会显示图形
+		-> 可以使用viewBox和preserveAspectRatio
+		-> 通常使用use标签xlink:href调用
+	image : 通过 xlink:href 引入外部图片资源
+		-> 例 : <image xlink:href='images/image.jpg' x='72' y='92' width='160' height='120' />
+
+-->
+</body>
+</html>
