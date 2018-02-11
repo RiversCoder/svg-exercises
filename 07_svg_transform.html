@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>svg transform</title>
+	<style type="text/css">
+		*{margin: 0;padding:0;}
+		html,body{width:100%;height:100;}
+		svg{display: inline-block;border:1px solid #666;}
+	</style>
+</head>
+<body>
+	<!-- svg transform 变换 -->
+
+	<!-- 
+		1. 移动图形方法： use 
+			通过use标签的x,y属性 来设置偏移原来下x,y位置的距离
+			或者说是指代组合g(默认(0,0))要移动到(x,y)的位置
+	-->
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<g id='square1'>
+			<rect x='10' y='20' width='20' height='20' style='fill:black;stroke-width:2;' />
+		</g>
+		<use xlink:href='#square1' x='20' y='20' />
+	</svg>
+
+	<!-- 
+		2. 移动图形方法： translate(x,y) -> transform='translate(20,30)'
+			x: 将改图形所在的网格坐标移动到底层网格坐标x处
+			y: 将改图形所在的网格坐标移动到底层网格坐标y处
+			* tanslate移动原理: translate声明会获取整个网格，然后把它移动到画布的新位置，而不是移动正方形。对于正方形而言，他仍然绘制在左上角(0,0)处
+	-->
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<g id='square2'>
+			<rect x='10' y='10' width='20' height='20' style='fill:black;stroke-width:2;' />
+		</g>
+		<use xlink:href='#square2' transform='translate(30,30)' />
+	</svg>
+
+	<!-- 
+		3. scale变换： 
+			-> scale(value) -> transform='scale(2)' -> transform='scale(2,2)'
+			-> scale(valueX,valueY) -> transform='scale(2,2)'
+			-> 注: 缩放变换永远不会改变图形对象的网格坐标或者它的笔画宽度，但是它会改变对应画布上的坐标系统（网格）的大小
+	-->
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<g id='square3'>
+			<rect x='10' y='10' width='20' height='20' style='fill:none;stroke:pink;' />
+		</g>
+		<use xlink:href='#square3' 
+		 transform='scale(2)' />
+	</svg>
+
+	
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<g id='square4'>
+			<rect x='10' y='10' width='20' height='20' style='fill:none;stroke:pink;' />
+		</g>
+		<use xlink:href='#square4' 
+		 transform='scale(3,1.5)' />
+	</svg>
+	
+	<!-- 
+		4. 变换序列： 嵌套变换
+	-->
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<line x1='0' y1='0' x2='0' y2='100' style='stroke:grey;' />
+		<line x1='0' y1='0' x2='100' y2='0' style='stroke:grey;' />
+
+		<rect x='10' y='10' width='20' height='15' transform='translate(0,0) scale(2)' style='fill:grey' />
+	</svg>
+
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<line x1='0' y1='0' x2='0' y2='100' style='stroke:grey;' />
+		<line x1='0' y1='0' x2='100' y2='0' style='stroke:grey;' />
+		<g transform='scale(2) '>
+			<g transform='translate(30,20)'>
+				<rect x='10' y='10' width='20' height='15' transform='' style='fill:grey' />
+			</g>
+		</g>
+	</svg>
+	
+
+
+	<!-- 
+		5. 笛卡尔坐标转换
+	-->
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<g transform='translate(0,100) scale(1,-1)' >
+			
+			<line x1='0' y1='0' x2='100' y2='0' style='stroke:black;' />
+			<line x1='0' y1='0' x2='0' y2='100' style='stroke:black;' />
+			
+			<polygon points='40 40,100 40,70 70,40 70' style='fill:grey;stroke:black;' />
+			
+		</g>
+	</svg>
+
+	<!--
+		
+	-->
+	
+	<svg width='200px' height='200px' viewBox='0 0 200 200' >
+		
+		
+
+	</svg>
+</body>
+</html>
