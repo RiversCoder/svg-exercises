@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		svg{border:1px solid #eee;}
+		.paths{stroke:black;fill:none;animation:move ease 1s;}
+		@keyframes move{
+			0%
+			{
+				stroke-dasharray:0 352;
+			}
+			100%
+			{
+				stroke-dasharray:352 352;
+			}
+		}
+	</style>
+</head>
+<body>
+	<svg width='600' height='600' viewBox='0 0 600 600'>
+		<path d='M 20 80 C 50 20, 150 60, 200 120 S 320 100, 280 180' style='' class='paths' />
+	</svg>
+
+	<script type="text/javascript">
+		var path = document.querySelector('.paths');
+		var length = path.getTotalLength();
+		console.log(length);
+	</script>
+	
+</body>
+</html>
