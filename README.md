@@ -1,9 +1,9 @@
 ![svg](/images/svg.png)
 
-## svg 小案例
+## svg demos
 
-> 7. 进度球案例 Demo 
-* 水波纹滚动球案例 [Demo在线查看](https://riverscoder.github.io/svg-exercises/17_svg_progress_up.html 'Demo查看')
+> 1. 进度球案例
+* 水波纹滚动进度球案例 [Demo在线查看](https://riverscoder.github.io/svg-exercises/17_svg_progress_up.html 'Demo查看')
 
 
 ## svg exercises
