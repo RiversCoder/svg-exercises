@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		svg{display:block;border:thick solid #ddd;margin-left:10px;float:left;}
+	</style>
+</head>
+
+<body>
+	
+	<!-- 测试 svg vewBox 以及 preserveAspectRatio -->
+
+	<svg style="width:200px; height:200px">
+   	 <circle cx="100" cy="100" r="100" fill="#687ef3" stroke="none"></circle>
+	</svg>
+
+	<svg style="width:50px; height:150px">
+   	 	<circle cx="100" cy="100" r="100" fill="#687ef3" stroke="none"></circle>
+	</svg>
+
+	<svg style="width:50px; height:150px" viewBox="0 0 200 200">
+   	 	<circle cx="100" cy="100" r="100" fill="#687ef3" stroke="none"></circle>
+	</svg>
+
+	<svg style="width:50px; height:150px" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+   	 	<circle cx="100" cy="100" r="100" fill="#687ef3" stroke="none"></circle>
+	</svg>
+
+	<!--
+		1. viewBox的四个参数分别代表：最小X轴数值；最小y轴数值；宽度；高度
+		2. preserveAspectRatio : 维持外观比例 
+		   默认值 preserveAspectRatio="xMidYMid meet"
+		   第一个参数： (内部svg图形基于svg视口x,y轴的位置 类似于background-position)
+			   	xMinYMin,
+				xMinYMid,
+				xMinYMax,
+				xMidYMin,
+				xMidYMid,
+				xMidYMax,
+				xMaxYMin,
+				xMaxYMid,
+				xMaxYMax
+			第二个参数：
+			    1. meet -> meet就是前面那种自动调整viewBox到可以在svg画布中完全展示; 非常类似css里background-size:contain
+			    2. slice -> 而slice是自动调整viewBox到撑满整个svg画布; 非常类似background-size:cover
+	-->	
+
+</body>
+</html>

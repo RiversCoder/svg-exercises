@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>svg path</title>
+	<style type="text/css">
+		/* *{margin: 0;padding:0;} */
+		html,body{width:100%;height:100%;}
+		svg{display: inline-block;border:1px solid #999;}
+	</style>
+</head>
+<body>
+	
+	<!--
+		1. 使用moveto和lineto
+	-->
+
+	<svg width='150' height='150' viewBox='0 0 150 150'>
+		
+		<g style='stroke:black;fill:none;'>
+			
+			<!-- 线段 -->
+			<path d='M 10 10 L 100 10' />
+			
+			<!-- 直角 -->
+			<path d='M 10,20 L 100,20 L 100,50' />
+
+			<!-- 两个30度角 -->
+			<path d='M 40,60 L 10,60 L 40,42.68 M 60,60 L 90,60 L 60,42.68' />
+
+		</g>
+
+	</svg>
+
+	<!--
+		2. 使用closepath
+	-->
+	
+	<svg width='150px' height='150px' viewBox='0 0 150 150'>
+		
+		<g style='stroke:black;fill:none;'>
+			
+			<!-- 四条线段绘制的矩形 -->
+			<path d='M 10,10 L 40,10 L 40,30 L 10,30 L 10,10' />
+			
+			<!-- closepath绘制的矩形 -->
+			<path d='M 60,10 L 90,10 L 90,30 L 60,30  Z' />
+
+			<!-- 两个30度角 -->
+			<path d='M 40,60 L 10,60 L 40,42.68 Z  
+			M 60,60 L 90,60 L 60,42.68 Z' />
+
+		</g>
+
+	</svg>
+
+	<!--
+		3. 独立线条与closepath
+	-->
+	
+	<svg width='150px' height='150px' viewBox='0 0 150 150'>
+		
+		<g style='stroke:gray;fill:none;stroke-width:8;stroke-linecap:round;'>
+			
+			<!-- 四条线段绘制的矩形 -->
+			<path d='M 10,10 L 40,10 L 40,30 L 10,30 L 10,10' />
+			
+			<!-- closepath绘制的矩形 -->
+			<path d='M 60,10 L 90,10 L 90,30 L 60,30  Z' />
+
+		</g>
+
+	</svg>	
+
+	<!--
+		4. path相对坐标标识：m,l
+	-->
+	
+	<svg width='150px' height='150px' viewBox='0 0 150 150'>
+		
+		<g style='stroke:gray;fill:none;'>
+			
+			<path d='M 10 10, L 20 10, L 20 30, M 40 40, L 55 35' />
+
+		</g>
+
+	</svg>	
+
+	<svg width='150px' height='150px' viewBox='0 0 150 150'>
+		
+		<g style='stroke:gray;fill:none;'>
+			
+			<path d='m 10 10,l 10 0, l 0 20, m 20 10, l 15 -5' />
+
+		</g>
+
+	</svg>
+
+	
+	<!--
+		5. 路径的快捷方式 H,V,h,v ( 水平垂直命令 )
+		 
+		 水平线：
+		        H -> H 60 绘制一条到绝对位置( 60, current_y ) 的线
+		        h -> h 60 绘制一条到绝对位置( current_x + 60, current_y ) 的线
+		 垂直线：
+		 		V -> V 60 绘制一条到绝对位置( current_x, 60 ) 的线
+		 		v -> v 60 绘制一条到绝对位置( current_x, current_y + 60 ) 的线      
+	-->
+	<svg width='150px' height='150px' viewBox='0 0 150 150'>
+		
+		<g style='stroke:gray;fill:none;'>
+			
+			<path d='m 12 24,H 24' />
+
+		</g>
+
+	</svg>
+
+	<svg width='150px' height='150px' viewBox='0 0 150 150'>
+		
+		<g style='stroke:gray;fill:none;'>
+			
+			<path d='m 12 24,h 15,v 25,h -15 z' />
+
+		</g>
+
+	</svg>	
+
+	<!--
+		6. 路径的快捷方式 
+
+			-> 可以在L或者l后面放置多组坐标
+			-> 命令后面不需要空格
+			-> 命令和数字之间也不需要空格,正数坐标对之间才需要空格
+			-> 正数和负数之间也不需要空格
+	-->
+	<svg width='150px' height='150px' viewBox='0 0 150 150'>
+		<!-- 下面都表示同一个菱形 -->
+		<g style='stroke:gray;fill:none;'>
+			
+			<!-- <path d='M 30 30 L 55 5 L 80 30 L 55 55 Z' /> -->
+			<!-- <path d='M 30 30 L 55 5 80 30 55 55 Z' /> -->
+			<!-- <path d='M 30 30 55 5 80 30 55 55 Z' /> -->
+			<!-- <path d='m 30 30 l 25 -25 l 25 25 l -25 25 z' /> -->
+			<!-- <path d='m 30 30 l 25 -25 25 25 -25 25 z' /> -->
+			<path d='m 30 30 25 -25 25 25 -25 25 z' />
+		</g>
+	</svg>
+
+	<svg width='150px' height='150px' viewBox='0 0 150 150'>
+		<!-- 下面都表示同一个菱形 -->
+		<g style='stroke:gray;fill:none;'>
+			
+			<!-- <path d='M 30 30 55 5 80 30 55 55Z' /> -->
+			<path d='m 30 30 25-25 25 25-25 25Z' />
+		</g>
+	</svg>
+	
+
+	<!--
+		6. 椭圆弧 path -> A/a
+	-->
+	
+	<svg width='400px' height='300px' viewBox='0 0 400 300'>
+		
+		<!-- 椭圆形太极图案 -->
+
+		<!-- 灰色阴影 -->
+		<ellipse cx='154' cy='154' rx='150' ry='120' style='fill:#999' />
+		<!-- 浅蓝色椭圆 -->
+		<ellipse cx='152' cy='152' rx='150' ry='120' style='fill:#cef' />
+		<!-- 浅红色大半圆 填充上半部分 -->
+		<path d='M 302 152 A 150 120, 0, 1, 0, 2 152 A 75 60, 0, 1, 0, 152 152' style='fill:#fcc' />
+		<!-- 浅蓝色小半圆 填充下半部分 -->
+		<path d='M 152 152 A 75 60, 0, 1, 1, 302 152' style='fill:#cef' />
+
+	</svg>
+	
+
+	<!--
+		7. 多边二次贝塞尔曲线 -> Q/q T/t
+	-->
+	
+	<svg width='300' height='300' viewBox='0 0 300 300'>
+		
+		<g style='fill:none;stroke-width:2;stroke:black;stroke-linecap: round;'>
+			<path d='M 30 100 Q 80 30, 100 100 T 200 80' />
+		</g>
+
+	</svg>
+
+	<!--
+		8. 三次贝塞尔曲线 -> C/c
+	-->
+	
+	<svg width='300' height='300' viewBox='0 0 300 300'>
+		
+		<g style='fill:none;stroke-width:2;stroke:black;stroke-linecap: round;'>
+			<path d='M 20 80 C 50 20, 150 60, 200 120' style='stroke:black;fill:none;'/>
+		</g>
+
+	</svg>
+
+	
+	<script type="text/javascript">
+		console.log(navigator);
+	</script>
+</body>
+</html>

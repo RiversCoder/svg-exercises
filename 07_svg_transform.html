@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>svg transform</title>
+	<style type="text/css">
+		*{margin: 0;padding:0;}
+		html,body{width:100%;height:100;}
+		svg{display: inline-block;border:1px solid #999;}
+	</style>
+</head>
+<body>
+	<!-- svg transform 变换 -->
+
+	<!-- 
+		1. 移动图形方法： use 
+			通过use标签的x,y属性 来设置偏移原来下x,y位置的距离
+			或者说是指代组合g(默认(0,0))要移动到(x,y)的位置
+	-->
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<g id='square1'>
+			<rect x='10' y='20' width='20' height='20' style='fill:black;stroke-width:2;' />
+		</g>
+		<use xlink:href='#square1' x='20' y='20' />
+	</svg>
+
+	<!-- 
+		2. 移动图形方法： translate(x,y) -> transform='translate(20,30)'
+			x: 将改图形所在的网格坐标移动到底层网格坐标x处
+			y: 将改图形所在的网格坐标移动到底层网格坐标y处
+			* tanslate移动原理: translate声明会获取整个网格，然后把它移动到画布的新位置，而不是移动正方形。对于正方形而言，他仍然绘制在左上角(0,0)处
+	-->
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<g id='square2'>
+			<rect x='10' y='10' width='20' height='20' style='fill:black;stroke-width:2;' />
+		</g>
+		<use xlink:href='#square2' transform='translate(30,30)' />
+	</svg>
+
+	<!-- 
+		3. scale变换： 
+			-> scale(value) -> transform='scale(2)' -> transform='scale(2,2)'
+			-> scale(valueX,valueY) -> transform='scale(2,2)'
+			-> 注: 缩放变换永远不会改变图形对象的网格坐标或者它的笔画宽度，但是它会改变对应画布上的坐标系统（网格）的大小
+	-->
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<g id='square3'>
+			<rect x='10' y='10' width='20' height='20' style='fill:none;stroke:pink;' />
+		</g>
+		<use xlink:href='#square3' 
+		 transform='scale(2)' />
+	</svg>
+
+	
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<g id='square4'>
+			<rect x='10' y='10' width='20' height='20' style='fill:none;stroke:pink;' />
+		</g>
+		<use xlink:href='#square4' 
+		 transform='scale(3,1.5)' />
+	</svg>
+	
+	<!-- 
+		4. 变换序列： 嵌套变换
+	-->
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<line x1='0' y1='0' x2='0' y2='100' style='stroke:grey;' />
+		<line x1='0' y1='0' x2='100' y2='0' style='stroke:grey;' />
+
+		<rect x='10' y='10' width='20' height='15' transform='translate(0,0) scale(2)' style='fill:grey' />
+	</svg>
+
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<line x1='0' y1='0' x2='0' y2='100' style='stroke:grey;' />
+		<line x1='0' y1='0' x2='100' y2='0' style='stroke:grey;' />
+		<g transform='scale(2) '>
+			<g transform='translate(30,20)'>
+				<rect x='10' y='10' width='20' height='15' transform='' style='fill:grey' />
+			</g>
+		</g>
+	</svg>
+	
+
+
+	<!-- 
+		5. 笛卡尔坐标转换
+	-->
+	<svg width='200' height='200' viewBox='0 0 200 200'>
+		<g transform='translate(0,100) scale(1,-1)' >
+			
+			<line x1='0' y1='0' x2='100' y2='0' style='stroke:black;' />
+			<line x1='1' y1='0' x2='1' y2='100' style='stroke:black;' />
+			
+			<polygon points='40 40,100 40,70 70,40 70' style='fill:grey;stroke:black;' />
+			
+		</g>
+	</svg>
+
+	
+	<svg width='200px' height='200px' viewBox='0 0 200 200' >
+		
+		<line x1='0' y1='0' x2='100' y2='0' style='stroke:black;' />
+		<line x1='1' y1='0' x2='1' y2='100' style='stroke:black;' />
+		
+		<polygon points='40 40,100 40,70 70,40 70' style='fill:grey;stroke:black;' />
+
+	</svg>
+
+	<!--
+		6. rotate转换
+	-->
+	<svg width='200px' height='200px' viewBox='0 0 200 200' >
+		
+		<polyline points='100 0, 0 0, 0 100' style='stroke:black;fill:none;' />
+		
+		<rect x='70' y='30' width='20' height='20' style='fill:grey' />
+		<rect x='70' y='30' width='20' height='20' transform='rotate(45)' style='fill:black' />
+
+	</svg>
+	
+
+	<!--
+		6. 围绕中心旋转 rotate( angle, centerX, centerY )
+	-->
+	<svg width='200px' height='200px' viewBox='0 0 200 200' >
+		
+		<circle cx='50' cy='50' r='3' style='fill:black;'/>
+
+		<g id='arrow' style='stroke:black'>
+			<line x1='60' y1='50' x2='90' y2='50' />
+			<polygon points='90 50,85 45, 85 55' />
+		</g>
+		
+		<use xlink:href='#arrow' transform='rotate(60,50,50)' />
+		<use xlink:href='#arrow' transform='rotate(-90,50,50)' />
+		<use xlink:href='#arrow' transform='rotate(-150,50,50)' />
+
+	</svg>
+
+
+	<!--
+		7. 围绕中心缩放 tanslate( -centerX * (factor-1),-centerY * (factor-1) ) scale(factor)
+	-->
+	<svg width='200px' height='200px' viewBox='0 0 200 200' >
+		
+		<circle cx='50' cy='50' r='3' style='fill:black;'/>
+
+		<g id='arrowBox' style='stroke:black;fill:none'>
+			<rect x='35' y='40' width='30' height='20' />
+		</g>
+		
+		<use xlink:href='#arrowBox' transform='translate(-50,-50) scale(2)' style='stroke-width:0.5;'/>
+		<use xlink:href='#arrowBox' transform='translate(-75,-75) scale(2.5)' style='stroke-width:0.4;'/>
+		<use xlink:href='#arrowBox' transform='translate(-100,-100) scale(3)' style='stroke-width:0.3;'/>
+		
+	</svg>
+
+
+
+	<!--
+		8. skewX和skewY变换 斜切
+		skewX坐标会按照指定的角度推动所有x坐标
+		skewY坐标会倾斜y坐标，而x坐标不会改变
+	-->
+
+	<svg width='200px' height='200px' viewBox='0 0 200 200' >
+		
+		<g style='stroke:gray;stroke-dasharray:4 4;'>
+			<line x1='0' y1='0' x2='200' y2='0' />
+			<line x1='20' y1='0' x2='20' y2='90' />
+			<line x1='120' y1='0' x2='120' y2='90' />
+		</g>
+		
+
+		<g transform='translate(20,0)'>
+			<g transform='skewY(60)'>
+				<polyline points='50 0, 0 0, 0 50' style='fill:none;stroke:black;stroke-width:2;' />
+				<text x='0' y='60'>skewY</text>
+			</g>
+		</g>
+		
+
+		<g transform='translate(120,0)'>
+			<g transform='skewX(30)'>
+				<polyline points='50 0, 0 0, 0 50' style='fill:none;stroke:black;stroke-width:2;' />
+				<text x='0' y='60'>skewX</text>
+			</g>
+		</g>
+
+	</svg>
+
+</body>
+</html>
