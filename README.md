@@ -1,5 +1,11 @@
 ![svg](/images/svg.png)
 
+## svg 小案例
+
+> 7. 进度球案例 Demo 
+* 水波纹滚动球案例 [Demo在线查看](https://riverscoder.github.io/svg-exercises/17_svg_progress_up.html 'Demo查看')
+
+
 ## svg exercises
 
 > 1. Draw a cat with svg
@@ -54,8 +60,6 @@
 * g use defs symbol image
 * xlink:href='#Id'
 
-> 7. 进度球案例 Demo 
-* [Demo查看](https://riverscoder.github.io/svg-exercises/17_svg_progress_up.html 'Demo查看')
 
 
 
