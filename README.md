@@ -6,7 +6,7 @@
 * 水波纹滚动进度球案例 [Demo在线查看](https://riverscoder.github.io/svg-exercises/17_svg_progress_up.html 'Demo查看')
 
 >2. 组合旋转特效案例
-* Js动态创建组合旋转特小案例[Demo在线查看](https://riverscoder.github.io/svg-exercises/14_svg_shape_animation.html 'Demo查看')
+* Js动态创建组合旋转特效案例[Demo在线查看](https://riverscoder.github.io/svg-exercises/14_svg_shape_animation.html 'Demo查看')
 
 ## svg exercises
 
