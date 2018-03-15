@@ -54,7 +54,8 @@
 * g use defs symbol image
 * xlink:href='#Id'
 
-> 7. 进度球案例 Demo [demo查看](https://riverscoder.github.io/svg-exercises/17_svg_progress_up.html,'demo查看')
+> 7. 进度球案例 Demo 
+* [Demo查看](https://riverscoder.github.io/svg-exercises/17_svg_progress_up.html 'Demo查看')
 
 
 
